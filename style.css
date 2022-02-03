@@ -140,6 +140,14 @@ body {
   overflow-y: scroll;
 }
 
+.cart__item {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 10px;
+  border-bottom: solid 1px rgb(208, 211, 212);
+  font-size: 0.65rem;
+}
+
 .empty-cart {
   width: 170px;
   height: 35px;
