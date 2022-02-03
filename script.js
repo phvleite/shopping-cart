@@ -54,6 +54,7 @@ function extractProd(data) {
 }
 
 window.onload = async () => {
-  const dataProd = await fetchProducts();
-  extractProd(dataProd);
+  const dataProd = await fetchProducts('computador');
+  const dataResult = dataProd.results;
+  extractProd(dataResult);
 };
