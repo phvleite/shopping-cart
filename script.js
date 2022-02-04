@@ -50,8 +50,9 @@ function createCartItemElement({ sku, name, salePrice }) {
     li.id = +cart[cart.length - 1].id + 1;
   }
   li.addEventListener('click', cartItemClickListener);
-  dbCart = { id: `${li.id}`, sku: `${sku}`, name: `${name}`, salePrice: `${salePrice}` };
-  cart.push(dbCart);
+  // const objItem = { id: li.id, name: li.innerText };
+  cart.push({ id: li.id, name: li.innerText });
+  saveCartItems(cart);
   return li;
 }
 
