@@ -37,6 +37,7 @@ function cartItemClickListener(evento) {
     .map((item) => item)
     .filter((item) => item.id !== id);
   cart = cart2;
+  saveCartItems(cart);
   evento.target.parentNode.removeChild(evento.target);
 }
 
@@ -69,6 +70,15 @@ async function itemClickListener(event) {
 function recoverItemsCart() {
   cart = JSON.parse(getSavedCartItems());
   if (cart === null) cart = [];
+  cart.forEach((item) => {
+    const liCart = document.createElement('li');
+    const olCart = document.querySelector('.cart__items');
+    liCart.id = item.id;
+    liCart.className = 'cart__item';
+    liCart.innerText = item.name;
+    liCart.addEventListener('click', cartItemClickListener);
+    olCart.appendChild(liCart);
+  });
 }
 
 function extractProd(data) {
