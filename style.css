@@ -155,3 +155,21 @@ body {
   border: 2px solid rgb(5, 52, 219);
   background-color: rgb(249, 249, 246);
 }
+
+.cart__items li:hover {
+  background-color: rgb(179, 182, 183);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cart__items li:active {
+  filter: brightness(1.75);
+}
+
+.item__add button:active {
+  filter: brightness(1.75);
+}
+
+.item__add button:hover {
+  background-color: rgb(21, 67, 96);
+}
