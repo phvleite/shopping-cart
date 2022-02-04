@@ -50,7 +50,6 @@ function createCartItemElement({ sku, name, salePrice }) {
     li.id = +cart[cart.length - 1].id + 1;
   }
   li.addEventListener('click', cartItemClickListener);
-  // const objItem = { id: li.id, name: li.innerText };
   cart.push({ id: li.id, name: li.innerText });
   saveCartItems(cart);
   return li;
@@ -65,6 +64,10 @@ async function itemClickListener(event) {
   const liCart = createCartItemElement({ sku: id, name: title, salePrice: price });
   const olCart = document.querySelector('.cart__items');
   olCart.appendChild(liCart);
+}
+
+function recoverItemsCart() {
+  cart = getSavedCartItems();
 }
 
 function extractProd(data) {
@@ -88,4 +91,5 @@ window.onload = async () => {
   buttonProds.forEach((item) => {
     item.addEventListener('click', itemClickListener);
   });
+  recoverItemsCart();
 };
