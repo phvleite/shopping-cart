@@ -1,4 +1,7 @@
 let cart = [];
+let totalPrice = 0;
+const showTotalPrice = document.querySelector('.total-price');
+showTotalPrice.innerText = `${totalPrice}`;
 
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
@@ -33,6 +36,14 @@ function getSkuFromProductItem(item) {
 function cartItemClickListener(evento) {
   // coloque seu código aqui
   const { id } = evento.target;
+  let price = 0;
+  cart.forEach((item) => {
+    if (item.id === id) {
+      price = item.price;
+    }
+  });
+  totalPrice -= +price;
+  showTotalPrice.innerText = `${totalPrice}`;
   const cart2 = cart
     .map((item) => item)
     .filter((item) => item.id !== id);
@@ -43,6 +54,8 @@ function cartItemClickListener(evento) {
 
 function createCartItemElement({ sku, name, salePrice }) {
   const li = document.createElement('li');
+  totalPrice += salePrice;
+  showTotalPrice.innerText = `${totalPrice}`;
   li.className = 'cart__item';
   li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
   if (cart.length === 0) {
@@ -51,7 +64,7 @@ function createCartItemElement({ sku, name, salePrice }) {
     li.id = +cart[cart.length - 1].id + 1;
   }
   li.addEventListener('click', cartItemClickListener);
-  cart.push({ id: li.id, name: li.innerText });
+  cart.push({ id: li.id, name: li.innerText, price: `${salePrice}` });
   saveCartItems(cart);
   return li;
 }
