@@ -102,6 +102,10 @@ body {
   box-sizing: border-box;
 }
 
+.item:hover {
+  box-shadow: 0 0 20px 0 rgb(105, 105, 106);
+}
+
 .item .item__sku {
   display: none;
 }
@@ -166,10 +170,11 @@ body {
   filter: brightness(1.75);
 }
 
-.item__add button:active {
+.item .item__add:active {
   filter: brightness(1.75);
 }
 
-.item__add button:hover {
-  background-color: rgb(21, 67, 96);
+.item .item__add:hover {
+  background-color: rgb(0, 1, 128);
+  font-weight: 600;
 }
