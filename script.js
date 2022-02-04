@@ -67,7 +67,8 @@ async function itemClickListener(event) {
 }
 
 function recoverItemsCart() {
-  cart = getSavedCartItems();
+  cart = JSON.parse(getSavedCartItems());
+  if (cart === null) cart = [];
 }
 
 function extractProd(data) {
