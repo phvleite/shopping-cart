@@ -95,15 +95,16 @@ body {
   display: flex;
   flex-direction: column;
   height: auto;
+  background: white;
   margin: 5px;
   width: 200px;
   border: 2px solid rgb(234, 234, 233);
-  border-radius: 5px;
+  border-radius: 20px;
   box-sizing: border-box;
 }
 
 .item:hover {
-  box-shadow: 0 0 20px 0 rgb(105, 105, 106);
+  box-shadow: 1px 3px 15px 0 rgba(105, 105, 106, 0.75);
 }
 
 .item .item__sku {
@@ -129,6 +130,9 @@ body {
   margin: 0;
   padding: 10px;
   color: white;
+  border-radius: 0 0 20px 20px;
+  box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.25),
+    inset -3px -3px 5px rgba(0, 0, 0, 0.5);
 }
 
 .cart {
@@ -191,6 +195,8 @@ body {
 .item .item__add:hover {
   background-color: rgb(0, 1, 128);
   font-weight: 600;
+  box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.25),
+    inset -3px -3px 5px rgba(0, 0, 0, 0.5);
 }
 
 .price {
@@ -200,7 +206,10 @@ body {
   padding: 5px;
   text-align: center;
   font-size: 1.5rem;
-  font-weight: 600;
+}
+
+.total-price {
+  font-weight: 900;
 }
 
 .loading {
