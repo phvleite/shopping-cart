@@ -8,16 +8,16 @@ describe('2 - Teste a função fecthItem', () => {
     expect(typeof fetchItem).toEqual('function');
   });
 
-  it ('verifica se ao executar a função fetchItem com o arguemento do item "MLB1615760527", se fução fetch é chamada', async () => {
+  it ('verifica se ao executar a função fetchItem com o arguemento do item "MLB1615760527", se fução fetch é chamada', () => {
     expect.assertions(1);
-    const dataResult = await fetchItem('MLB1615760527');
+    const dataResult = fetchItem('MLB1615760527');
     expect(fetch).toHaveBeenCalled();
   });
 
-  it ('verifica se a função fetch utiliza o endpoint correto: https://api.mercadolibre.com/items/MLB1615760527', async () => {
+  it ('verifica se a função fetch utiliza o endpoint correto: https://api.mercadolibre.com/items/MLB1615760527', () => {
     expect.assertions(1);
     const url = 'https://api.mercadolibre.com/items/MLB1615760527';
-    const dataResult = await fetchItem('MLB1615760527');
+    const dataResult = fetchItem('MLB1615760527');
     expect(fetch).toBeCalledWith(url);
   });
 

@@ -8,16 +8,16 @@ describe('1 - Teste a função fecthProducts', () => {
     expect(typeof fetchProducts).toEqual('function');
   });
 
-  it ('verifica se ao executar a função fetchProducts com o arguemento "computador", se fução fetch é chamada', async () => {
+  it ('verifica se ao executar a função fetchProducts com o arguemento "computador", se fução fetch é chamada', () => {
     expect.assertions(1);
-    const dataResult = await fetchProducts('computador');
+    const dataResult = fetchProducts('computador');
     expect(fetch).toHaveBeenCalled();
   });
 
-  it ('verifica se a função fetch utiliza o endpoint correto: https://api.mercadolibre.com/sites/MLB/search?q=computador', async () => {
+  it ('verifica se a função fetch utiliza o endpoint correto: https://api.mercadolibre.com/sites/MLB/search?q=computador', () => {
     expect.assertions(1);
     const url = 'https://api.mercadolibre.com/sites/MLB/search?q=computador';
-    const dataResult = await fetchProducts('computador');
+    const dataResult = fetchProducts('computador');
     expect(fetch).toBeCalledWith(url);
   });
 
